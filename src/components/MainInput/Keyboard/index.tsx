@@ -9,9 +9,12 @@ interface Props {
 const Keyboard = ({ targetKey }: Props) => {
   const [pressedKey, setPressedKey] = useState('');
 
-  const lastTargetKeyRef = useRef(null);
-
   const target = targetKey?.toUpperCase();
+
+  const targetRef = useRef(null);
+  targetRef.current = target;
+
+  const lastTargetKeyRef = useRef(target);
 
   function onKeyDown({ key }: KeyboardEvent) {
     setPressedKey(key.toUpperCase());
@@ -22,8 +25,8 @@ const Keyboard = ({ targetKey }: Props) => {
   }
 
   useEffect(() => {
-    lastTargetKeyRef.current = target;
-  }, [pressedKey]);
+    lastTargetKeyRef.current = targetRef.current;
+  }, [pressedKey, targetRef]);
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);

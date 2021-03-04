@@ -1,4 +1,11 @@
-import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  KeyboardEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { IoMdRefresh } from 'react-icons/io';
 import Keyboard from './Keyboard';
 import * as S from './styles';
@@ -89,11 +96,11 @@ const MainInput = ({ phrase }: Props) => {
     setErrors(0);
   }
 
-  function calcCharsPerMinute() {
+  const calcCharsPerMinute = useCallback(() => {
     if (timeInSeconds > 0) {
       setCharsPerMinute(Math.round((charCount * 60) / timeInSeconds));
     }
-  }
+  }, [setCharsPerMinute, charCount, timeInSeconds]);
 
   useEffect(() => {
     if (!hasFinished) {
@@ -119,7 +126,7 @@ const MainInput = ({ phrase }: Props) => {
 
   useEffect(() => {
     calcCharsPerMinute();
-  }, [timeInSeconds, hasFinished]);
+  }, [timeInSeconds, hasFinished, calcCharsPerMinute]);
 
   useEffect(() => {
     if (!hasFinished) {
