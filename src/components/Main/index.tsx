@@ -12,7 +12,7 @@ const Main = () => (
 
     <Header />
 
-    <MainInput phrase="Essa é a frase que vai mostrar o quão bom você é" />
+    <MainInput phrase="Digite essa frase para descobrir quantas caracteres por minuto você faz" />
   </S.Wrapper>
 );
 

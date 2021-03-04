@@ -61,6 +61,10 @@ export const FakeInput = styled.div`
   span {
     font-size: 3rem;
     white-space: pre-wrap;
+
+    @media (max-width: 1440px) {
+      font-size: 2.5rem;
+    }
   }
 `;
 
