@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { keyboardKeys } from './keyboardKeys';
 import * as S from './styles';
 
@@ -9,12 +9,21 @@ interface Props {
 const Keyboard = ({ targetKey }: Props) => {
   const [pressedKey, setPressedKey] = useState('');
 
+  const lastTargetKeyRef = useRef(null);
+
+  const target = targetKey?.toUpperCase();
+
   function onKeyDown({ key }: KeyboardEvent) {
     setPressedKey(key.toUpperCase());
   }
+
   function onKeyUp(e: KeyboardEvent) {
     setPressedKey('');
   }
+
+  useEffect(() => {
+    lastTargetKeyRef.current = target;
+  }, [pressedKey]);
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
@@ -26,8 +35,6 @@ const Keyboard = ({ targetKey }: Props) => {
     };
   }, []);
 
-  const target = targetKey?.toUpperCase();
-
   return (
     <S.Wrapper>
       <S.KeysContainer>
@@ -37,7 +44,8 @@ const Keyboard = ({ targetKey }: Props) => {
               {row.map(({ key, display, className }) => (
                 <S.Key
                   key={key}
-                  isTarget={target === key}
+                  isNextTarget={target === key}
+                  isLastTarget={lastTargetKeyRef.current === key}
                   isPressed={pressedKey === key}
                   className={className}
                 >

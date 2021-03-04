@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 interface KeyProps {
-  isTarget: boolean;
+  isNextTarget: boolean;
+  isLastTarget: boolean;
   isPressed?: boolean;
 }
 
@@ -35,13 +36,13 @@ export const Key = styled.span<KeyProps>`
 
   transition: box-shadow 0.2s;
 
-  box-shadow: ${(props) => props.isTarget && '0 0 1rem 0.3rem #fff'};
+  box-shadow: ${(props) => props.isNextTarget && '0 0 1rem 0.3rem #fff'};
   filter: ${(props) => {
-    if (props.isPressed && !props.isTarget) {
+    if (props.isPressed && !props.isLastTarget) {
       // red
       return 'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
     }
-    if (props.isPressed && props.isTarget) {
+    if (props.isPressed && props.isLastTarget) {
       return 'brightness(90%)';
     }
     return 'brightness(100%)';
