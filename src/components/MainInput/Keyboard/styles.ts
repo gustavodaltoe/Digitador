@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+interface KeyProps {
+  isTarget: boolean;
+  isPressed?: boolean;
+}
+
 export const Wrapper = styled.section``;
 
 export const KeysContainer = styled.div`
@@ -14,7 +19,7 @@ export const Row = styled.div`
   display: flex;
 `;
 
-export const Key = styled.span`
+export const Key = styled.span<KeyProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +32,20 @@ export const Key = styled.span`
 
   border-radius: 0.4rem;
   margin: 0.4rem 0.3rem;
+
+  transition: box-shadow 0.2s;
+
+  box-shadow: ${(props) => props.isTarget && '0 0 1rem 0.3rem #fff'};
+  filter: ${(props) => {
+    if (props.isPressed && !props.isTarget) {
+      // red
+      return 'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
+    }
+    if (props.isPressed && props.isTarget) {
+      return 'brightness(90%)';
+    }
+    return 'brightness(100%)';
+  }};
 
   &.index-finger-right {
     background: #ffef7e;
@@ -44,42 +63,39 @@ export const Key = styled.span`
     background: #78e2aa;
   }
 
-  &[data-key='Backspace'] {
+  &.backspace {
     width: 9rem;
   }
 
-  &[data-key='TAB'] {
+  &.tab {
     width: 7rem;
   }
 
-  &[data-key='CAPS'] {
+  &.caps {
     width: 8rem;
   }
 
-  &[data-key='Enter'] {
-    &.enter-1 {
-      margin-bottom: 0;
-      border-bottom-right-radius: 0;
-      width: 6.4rem;
-    }
-    &.enter-2 {
-      margin-top: -0.4rem;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      height: 5.2rem;
-      width: 5.4rem;
-    }
+  &.enter-1 {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0;
+    width: 6.4rem;
+  }
+  &.enter-2 {
+    margin-top: -0.4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 5.2rem;
+    width: 5.4rem;
   }
 
-  &[data-key='Shift'] {
+  &.left-shift {
     width: 6rem;
-
-    &.right-shift {
-      width: 7.4rem;
-    }
+  }
+  &.right-shift {
+    width: 7.4rem;
   }
 
-  &[data-key='Spacebar'] {
+  &.space {
     width: 38rem;
     margin-left: auto;
     margin-right: auto;

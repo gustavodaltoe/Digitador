@@ -164,7 +164,7 @@ const MainInput = ({ phrase }: Props) => {
         </S.Right>
       </S.FakeInput>
 
-      <Keyboard />
+      <Keyboard targetKey={nextChar} />
     </S.Wrapper>
   );
 };
