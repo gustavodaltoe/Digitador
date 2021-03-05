@@ -7,21 +7,25 @@ interface Props {
 }
 
 const Keyboard = ({ targetKey }: Props) => {
-  const [pressedKey, setPressedKey] = useState('');
+  const [pressedKey, setPressedKey] = useState({ key: '', code: '' });
 
-  const target = targetKey?.toUpperCase();
+  const target = removeAccents(targetKey?.toUpperCase() || '');
 
   const targetRef = useRef(null);
   targetRef.current = target;
 
   const lastTargetKeyRef = useRef(target);
 
-  function onKeyDown({ key }: KeyboardEvent) {
-    setPressedKey(key.toUpperCase());
+  function removeAccents(str: string) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function onKeyDown(e: KeyboardEvent) {
+    setPressedKey(e);
   }
 
   function onKeyUp(e: KeyboardEvent) {
-    setPressedKey('');
+    setPressedKey({ key: '', code: '' });
   }
 
   useEffect(() => {
@@ -44,15 +48,16 @@ const Keyboard = ({ targetKey }: Props) => {
         {keyboardKeys.map((row, i) => {
           return (
             <S.Row key={i}>
-              {row.map(({ key, display, className }) => (
+              {row.map(({ code, display, className, neverShowError }) => (
                 <S.Key
-                  key={key}
-                  isNextTarget={target === key}
-                  isLastTarget={lastTargetKeyRef.current === key}
-                  isPressed={pressedKey === key}
+                  key={code}
+                  isHighlighted={display && target === display}
+                  isLastTarget={lastTargetKeyRef.current === display}
+                  isPressed={pressedKey.code === code}
+                  neverShowError={neverShowError}
                   className={className}
                 >
-                  {display || key}
+                  {display || code}
                 </S.Key>
               ))}
             </S.Row>

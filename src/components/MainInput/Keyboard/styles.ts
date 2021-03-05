@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 interface KeyProps {
-  isNextTarget: boolean;
+  isHighlighted: boolean;
   isLastTarget: boolean;
   isPressed?: boolean;
+  neverShowError?: boolean;
 }
 
 export const Wrapper = styled.section``;
@@ -30,19 +31,21 @@ export const Key = styled.span<KeyProps>`
   height: 4.4rem;
   font-size: 1.6rem;
   color: #777;
+  white-space: break-spaces;
+  line-height: 1rem;
 
   border-radius: 0.4rem;
   margin: 0.4rem 0.3rem;
 
   transition: box-shadow 0.2s;
 
-  box-shadow: ${(props) => props.isNextTarget && '0 0 1rem 0.3rem #fff'};
+  box-shadow: ${(props) => props.isHighlighted && '0 0 0.4rem 0.3rem #fff'};
   filter: ${(props) => {
-    if (props.isPressed && !props.isLastTarget) {
+    if (props.isPressed && !props.isLastTarget && !props.neverShowError) {
       // red
       return 'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
     }
-    if (props.isPressed && props.isLastTarget) {
+    if (props.isPressed && (props.isLastTarget || !!props.neverShowError)) {
       return 'brightness(90%)';
     }
     return 'brightness(100%)';

@@ -1,248 +1,310 @@
 interface keyProps {
-  key: string;
+  code: string;
   display?: string;
   className?: string;
+  neverShowError?: boolean;
 }
 
 export const keyboardKeys: keyProps[][] = [
   [
     {
-      key: "'",
+      code: 'Backquote',
+      display: "'",
     },
     {
-      key: '1',
+      code: 'Digit1',
+      display: '1',
       className: 'pinky',
     },
     {
-      key: '2',
+      code: 'Digit2',
+      display: '2',
       className: 'pinky',
     },
     {
-      key: '3',
+      code: 'Digit3',
+      display: '3',
       className: 'ring-finger',
     },
     {
-      key: '4',
+      code: 'Digit4',
+      display: '4',
       className: 'middle-finger',
     },
     {
-      key: '5',
+      code: 'Digit5',
+      display: '5',
       className: 'index-finger-left',
     },
     {
-      key: '6',
+      code: 'Digit6',
+      display: '6',
       className: 'index-finger-left',
     },
     {
-      key: '7',
+      code: 'Digit7',
+      display: '7',
       className: 'index-finger-right',
     },
     {
-      key: '8',
+      code: 'Digit8',
+      display: '8',
       className: 'middle-finger',
     },
     {
-      key: '9',
+      code: 'Digit9',
+      display: '9',
       className: 'ring-finger',
     },
     {
-      key: '0',
+      code: 'Digit0',
+      display: '0',
       className: 'pinky',
     },
     {
-      key: '-',
+      code: 'Minus',
+      display: '-',
       className: 'pinky',
     },
     {
-      key: '=',
+      code: 'Equal',
+      display: '=',
       className: 'pinky',
     },
     {
-      key: 'BACKSPACE',
+      code: 'Backspace',
       display: '←',
       className: 'backspace',
+      neverShowError: true,
     },
   ],
   [
     {
-      key: 'TAB',
+      code: 'Tab',
       className: 'tab',
+      neverShowError: true,
     },
     {
-      key: 'Q',
+      code: 'KeyQ',
+      display: 'Q',
       className: 'pinky',
     },
     {
-      key: 'W',
+      code: 'KeyW',
+      display: 'W',
       className: 'ring-finger',
     },
     {
-      key: 'E',
+      code: 'KeyE',
+      display: 'E',
       className: 'middle-finger',
     },
     {
-      key: 'R',
+      code: 'KeyR',
+      display: 'R',
       className: 'index-finger-left',
     },
     {
-      key: 'T',
+      code: 'KeyT',
+      display: 'T',
       className: 'index-finger-left',
     },
     {
-      key: 'Y',
+      code: 'KeyY',
+      display: 'Y',
       className: 'index-finger-right',
     },
     {
-      key: 'U',
+      code: 'KeyU',
+      display: 'U',
       className: 'index-finger-right',
     },
     {
-      key: 'I',
+      code: 'KeyI',
+      display: 'I',
       className: 'middle-finger',
     },
     {
-      key: 'O',
+      code: 'KeyO',
+      display: 'O',
       className: 'ring-finger',
     },
     {
-      key: 'P',
+      code: 'KeyP',
+      display: 'P',
       className: 'pinky',
     },
     {
-      key: '´',
+      code: 'BracketLeft',
+      display: '`\n´',
+      className: 'pinky',
+      neverShowError: true,
+    },
+    {
+      code: 'BracketRight',
+      display: '[',
       className: 'pinky',
     },
     {
-      key: '[',
-      className: 'pinky',
-    },
-    {
-      key: 'ENTER',
+      code: 'Enter',
       className: 'enter-1',
+      neverShowError: true,
     },
   ],
   [
     {
-      key: 'CAPS',
+      code: 'CapsLock',
+      display: 'CAPS',
       className: 'caps',
+      neverShowError: true,
     },
     {
-      key: 'A',
+      code: 'KeyA',
+      display: 'A',
       className: 'pinky',
     },
     {
-      key: 'S',
+      code: 'KeyS',
+      display: 'S',
       className: 'ring-finger',
     },
     {
-      key: 'D',
+      code: 'KeyD',
+      display: 'D',
       className: 'middle-finger',
     },
     {
-      key: 'F',
+      code: 'KeyF',
+      display: 'F',
       className: 'index-finger-left',
     },
     {
-      key: 'G',
+      code: 'KeyG',
+      display: 'G',
       className: 'index-finger-left',
     },
     {
-      key: 'H',
+      code: 'KeyH',
+      display: 'H',
       className: 'index-finger-right',
     },
     {
-      key: 'J',
+      code: 'KeyJ',
+      display: 'J',
       className: 'index-finger-right',
     },
     {
-      key: 'K',
+      code: 'KeyK',
+      display: 'K',
       className: 'middle-finger',
     },
     {
-      key: 'L',
+      code: 'KeyL',
+      display: 'L',
       className: 'ring-finger',
     },
     {
-      key: 'Ç',
+      code: 'Semicolon',
+      display: 'Ç',
+      className: 'pinky',
+      neverShowError: true,
+    },
+    {
+      code: 'Quote',
+      display: '^\n~',
+      className: 'pinky',
+      neverShowError: true,
+    },
+    {
+      code: 'Backslash',
+      display: ']',
       className: 'pinky',
     },
     {
-      key: '~',
-      className: 'pinky',
-    },
-    {
-      key: ']',
-      className: 'pinky',
-    },
-    {
-      key: 'ENTER',
+      code: 'Enter',
       display: '↵',
       className: 'enter-2',
+      neverShowError: true,
     },
   ],
   [
     {
-      key: 'LEFTSHIFT',
+      code: 'ShiftLeft',
       display: 'SHIFT',
       className: 'left-shift',
+      neverShowError: true,
     },
     {
-      key: '\\',
+      code: 'IntlBackslash',
+      display: '\\',
       className: 'pinky',
     },
     {
-      key: 'Z',
+      code: 'KeyZ',
+      display: 'Z',
       className: 'pinky',
     },
     {
-      key: 'X',
+      code: 'KeyX',
+      display: 'X',
       className: 'ring-finger',
     },
     {
-      key: 'C',
+      code: 'KeyC',
+      display: 'C',
       className: 'middle-finger',
     },
     {
-      key: 'V',
+      code: 'KeyV',
+      display: 'V',
       className: 'index-finger-left',
     },
     {
-      key: 'B',
+      code: 'KeyB',
+      display: 'B',
       className: 'index-finger-left',
     },
     {
-      key: 'N',
+      code: 'KeyN',
+      display: 'N',
       className: 'index-finger-right',
     },
     {
-      key: 'M',
+      code: 'KeyM',
+      display: 'M',
       className: 'index-finger-right',
     },
     {
-      key: ',',
+      code: 'Comma',
+      display: ',',
       className: 'middle-finger',
     },
     {
-      key: '.',
+      code: 'Period',
+      display: '.',
       className: 'ring-finger',
     },
     {
-      key: ';',
+      code: 'Slash',
+      display: ';',
       className: 'pinky',
     },
     {
-      key: '/',
+      code: 'IntlRo',
+      display: '/',
       className: 'pinky',
     },
     {
-      key: 'RIGHTSHIFT',
+      code: 'ShiftRight',
       display: 'SHIFT',
       className: 'right-shift',
+      neverShowError: true,
     },
   ],
   [
     {
-      key: ' ',
+      code: 'Space',
+      display: ' ',
       className: 'space',
     },
   ],
