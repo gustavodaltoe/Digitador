@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  Digitador 🦾
+</h1>
 
-## Getting Started
+<p align="center">
+  <a href="https://digitador.vercel.app/" target="_blank">Live Demo</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como Executar</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
 
-First, run the development server:
+<p align="center">
+  <img alt="vercel deploy" src="https://therealsujitk-vercel-badge.vercel.app/?app=digitador" />
+  <img alt="License" src="https://img.shields.io/github/license/gustavodaltoe/Digitador?color=blue">
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 💻 Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <img src="./docs/images/demo-gif.gif" alt="Typing demonstration gif" />
+</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Eu queria digitar mais rápido e com todos os meus dedos, ao pesquisar um pouco encontrei o [Ratatype](https://www.ratatype.com/) que tinha vários exercícios de digitação numa interface muito legal. Esse site realmente me ajudou a chegar no meu objetivo e eu consigo digitar bem melhor agora, mas durante as lições, foi bem chato não poder usar o layout de teclado ABNT2 e ficar com várias coisas bugando. Também senti falta de usar palavras em português com os acentos e suas peculiaridades.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Após essa experiencia, Eu me desafiei só por diversão a criar a mesma solução gamificada só que com um layout de teclado ABNT2 e exercícios em PT-BR.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Vou tentar continuar a melhorar o projeto e lançar novas features com o tempo para torna-lo realmente útil para os outros, assim como o Ratatype foi útil para mim.
+## ✨ Tecnologias
 
-## Learn More
+* [React](https://pt-br.reactjs.org)
+* [Next.js](https://nextjs.org)
+* [Typescript](https://www.typescriptlang.org)
+* [Styled Components](https://styled-components.com)
+* [Jest](https://jestjs.io)
+* [Plop](https://plopjs.com)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Como Executar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Clone o repositório
+- Instale as dependências com `yarn`
+- Inicie o servidor com `yarn dev`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### ✅ Testes
 
-## Deploy on Vercel
+Rode os testes com `yarn test` ou desenvolva enquanto testa com `yarn test:watch`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔧 Criar Novos Componentes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+para criar um novo componente com o plop, use `yarn generate {nome}`
+
+## 📄 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE]() para mais detalhes.
