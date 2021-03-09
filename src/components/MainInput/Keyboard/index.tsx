@@ -21,7 +21,6 @@ const Keyboard = ({ targetKey }: Props) => {
   }
 
   function onKeyDown(e: KeyboardEvent) {
-    console.log(e);
     setPressedKey(e);
   }
 
