@@ -55,4 +55,4 @@ para criar um novo componente com o plop, use `yarn generate {nome}`
 
 ## 📄 Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE]() para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/gustavodaltoe/Digitador/blob/main/LICENSE) para mais detalhes.
