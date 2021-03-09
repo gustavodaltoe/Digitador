@@ -4,6 +4,6 @@ import MainInput from '.';
 
 describe('<MainInput />', () => {
   it('should describe here', () => {
-    const { container } = render(<MainInput />);
+    const { container } = render(<MainInput phrase="Alguma coisa" />);
   });
 });
