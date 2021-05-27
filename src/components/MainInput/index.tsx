@@ -103,9 +103,21 @@ const MainInput = ({ phrase }: Props) => {
   }, [setCharsPerMinute, charCount, timeInSeconds]);
 
   useEffect(() => {
+    let isMounted = true;
+    let timeout: NodeJS.Timeout;
+
     if (!hasFinished) {
-      setTimeout(() => setShowCursor(!showCursor), 500);
+      timeout = setTimeout(() => {
+        if (isMounted) {
+          setShowCursor(!showCursor);
+        }
+      }, 500);
     }
+
+    return () => {
+      clearTimeout(timeout);
+      isMounted = false;
+    };
   }, [showCursor, hasFinished]);
 
   useEffect(() => {
@@ -117,11 +129,20 @@ const MainInput = ({ phrase }: Props) => {
   }, [hasFinished]);
 
   useEffect(() => {
+    let isMounted = true;
+
     if (isPlaying) {
       charsPerMinuteTimeout = setTimeout(() => {
-        setTimeInSeconds(timeInSeconds + 1);
+        if (isMounted) {
+          setTimeInSeconds(timeInSeconds + 1);
+        }
       }, 1000);
     }
+
+    return () => {
+      clearTimeout(charsPerMinuteTimeout);
+      isMounted = false;
+    };
   }, [timeInSeconds, isPlaying]);
 
   useEffect(() => {
@@ -131,7 +152,9 @@ const MainInput = ({ phrase }: Props) => {
   useEffect(() => {
     if (!hasFinished) {
       hiddenInputFocusInterval = setInterval(() => {
-        hiddenInputRef.current.focus();
+        if (hiddenInputRef.current) {
+          hiddenInputRef.current.focus();
+        }
       }, 100);
     } else {
       clearInterval(hiddenInputFocusInterval);
@@ -154,7 +177,7 @@ const MainInput = ({ phrase }: Props) => {
         </S.Info>
       </S.InfoList>
 
-      <S.FakeInput>
+      <S.FakeInput className={isPlaying ? 'playing' : ''}>
         <S.HiddenInput
           type="text"
           ref={hiddenInputRef}
@@ -164,8 +187,8 @@ const MainInput = ({ phrase }: Props) => {
           onChange={handleChange}
         />
 
-        <S.Left>{leftString}</S.Left>
-        <S.Right>
+        <S.Left data-testid="left-string">{leftString}</S.Left>
+        <S.Right data-testid="right-string">
           {!hasFinished && <S.Cursor visible={showCursor} />}
           {rightString}
         </S.Right>
